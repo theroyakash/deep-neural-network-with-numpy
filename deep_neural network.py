@@ -346,9 +346,7 @@ def two_layer_model(X, Y, layers_dims, learning_rate = 0.0075, num_iterations = 
         grads['db2'] = db2
         
         # Update parameters.
-        ### START CODE HERE ### (approx. 1 line of code)
         parameters = update_parameters(parameters,grads,learning_rate)
-        ### END CODE HERE ###
 
         # Retrieve W1, b1, W2, b2 from parameters
         W1 = parameters["W1"]
