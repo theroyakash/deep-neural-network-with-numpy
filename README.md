@@ -1,4 +1,5 @@
 # Deep Neural Network with numpy
+> Improved version coming out soon
 Creating L layer deep Deep neural network with numpy.
 All operations are vectorized for faster operation
 
