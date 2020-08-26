@@ -1,5 +1,5 @@
-neuralnetwork module
-====================
+Main File and example implementation
+====================================
 
 .. automodule:: neuralnetwork
    :members:

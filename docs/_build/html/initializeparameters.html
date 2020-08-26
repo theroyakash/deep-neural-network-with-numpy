@@ -168,12 +168,16 @@
 <dt id="initializeparameters.InitializeParameters.initialize">
 <code class="sig-name descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#initializeparameters.InitializeParameters.initialize" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
-<dt>Initializes parameters</dt><dd><dl class="simple">
-<dt>Arguments:</dt><dd><p>layer_dims – python array (list) containing the dimensions of each layer in our network</p>
+<dt>Initializes parameters with random values</dt><dd><dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>layer_dims (List): python array (list) containing the dimensions of each layer in our network</p></li>
+</ul>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
-<dt>parameters – python dictionary containing your parameters “W1”, “b1”, …, “WL”, “bL”:</dt><dd><p>Wl – weight matrix of shape (layer_dims[l], layer_dims[l-1])
-bl – bias vector of shape (layer_dims[l], 1)</p>
+<dt>parameters – python dictionary containing your parameters <cite>“W1”, “b1”, …, “WL”, “bL”</cite>:</dt><dd><ul class="simple">
+<li><p><cite>Wl</cite> – weight matrix of shape <cite>(layer_dims[l], layer_dims[l-1])</cite></p></li>
+<li><p><cite>bl</cite> – bias vector of shape <cite>(layer_dims[l], 1)</cite></p></li>
+</ul>
 </dd>
 </dl>
 </dd>
