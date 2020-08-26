@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>neuralnetwork module &#8212; Deep Neural Networks in Numpy 1.0.1 documentation</title>
+    <title>initializeparameters module &#8212; Deep Neural Networks in Numpy 1.0.1 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,7 +15,6 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="deep-neural-network-with-numpy" href="modules.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -32,8 +31,27 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="neuralnetwork-module">
-<h1>neuralnetwork module<a class="headerlink" href="#neuralnetwork-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-initializeparameters">
+<span id="initializeparameters-module"></span><h1>initializeparameters module<a class="headerlink" href="#module-initializeparameters" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="initializeparameters.InitializeParameters">
+<em class="property">class </em><code class="sig-prename descclassname">initializeparameters.</code><code class="sig-name descname">InitializeParameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">layer_dims</span></em><span class="sig-paren">)</span><a class="headerlink" href="#initializeparameters.InitializeParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="initializeparameters.InitializeParameters.initialize">
+<code class="sig-name descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#initializeparameters.InitializeParameters.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments:
+layer_dims – python array (list) containing the dimensions of each layer in our network</p>
+<p>Returns:
+parameters – python dictionary containing your parameters “W1”, “b1”, …, “WL”, “bL”:</p>
+<blockquote>
+<div><p>Wl – weight matrix of shape (layer_dims[l], layer_dims[l-1])
+bl – bias vector of shape (layer_dims[l], 1)</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -54,20 +72,14 @@
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">deep-neural-network-with-numpy</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">neuralnetwork module</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">deep-neural-network-with-numpy</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-  <li><a href="modules.html">deep-neural-network-with-numpy</a><ul>
-      <li>Previous: <a href="modules.html" title="previous chapter">deep-neural-network-with-numpy</a></li>
-  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -101,7 +113,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/neuralnetwork.rst.txt"
+      <a href="_sources/initializeparameters.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
