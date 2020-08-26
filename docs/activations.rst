@@ -1,4 +1,4 @@
-activations module
+Activations module
 ==================
 
 .. automodule:: activations

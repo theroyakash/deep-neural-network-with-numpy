@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>activations module &mdash; Deep neural networks with numpy 1.0.1 documentation</title>
+  <title>Activations module &mdash; Deep neural networks with numpy 1.0.1 documentation</title>
   
 
   
@@ -85,7 +85,7 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Deep Neural Network with numpy</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">activations module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Activations module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="initializeparameters.html">Parameters initialization module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network_utils.html">Network’s Design and architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="neuralnetwork.html">Main File and example implementation</a></li>
@@ -139,7 +139,7 @@
         
           <li><a href="modules.html">Deep Neural Network with numpy</a> &raquo;</li>
         
-      <li>activations module</li>
+      <li>Activations module</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -159,27 +159,43 @@
            <div itemprop="articleBody">
             
   <div class="section" id="module-activations">
-<span id="activations-module"></span><h1>activations module<a class="headerlink" href="#module-activations" title="Permalink to this headline">¶</a></h1>
+<span id="activations-module"></span><h1>Activations module<a class="headerlink" href="#module-activations" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="activations.relu">
 <code class="sig-prename descclassname">activations.</code><code class="sig-name descname">relu</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Z</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.relu" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implement the RELU function.</p>
-<p>Arguments:
-Z – Output of the linear layer, of any shape</p>
-<p>Returns:
-A – Post-activation parameter, of the same shape as Z
-cache – a python dictionary containing “A” ; stored for computing the backward pass efficiently</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p>Z – Output of the linear layer, of any shape</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>A – Post-activation parameter, of the same shape as Z</p></li>
+<li><p>cache – a python dictionary containing “A” ; stored for computing the backward pass efficiently</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py function">
 <dt id="activations.sigmoid">
 <code class="sig-prename descclassname">activations.</code><code class="sig-name descname">sigmoid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Z</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.sigmoid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implements the sigmoid activation in numpy</p>
-<p>Arguments:
-Z – numpy array of any shape</p>
-<p>Returns:
-A – output of sigmoid(z), same shape as Z
-cache – returns Z as well, useful during backpropagation</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>Z – numpy array of any shape</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>A – output of <cite>sigmoid(z)</cite>, same shape as Z</p></li>
+<li><p>cache – returns Z as well, useful during backpropagation</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
 </dd></dl>
 
 </div>
