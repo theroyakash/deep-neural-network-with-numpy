@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Deep neural networks with numpy's documentation!
-===========================================================
+Documentation of a deep neural networks with numpy by theroyakash
+=================================================================
 
 .. toctree::
    :maxdepth: 2

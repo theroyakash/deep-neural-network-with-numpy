@@ -1,5 +1,5 @@
-initializeparameters module
-===========================
+Parameters initialization module
+================================
 
 .. automodule:: initializeparameters
    :members:

@@ -1,4 +1,4 @@
-deep-neural-network-with-numpy
+Deep Neural Network with numpy
 ==============================
 
 .. toctree::

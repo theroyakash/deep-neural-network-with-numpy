@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>network_utils module &mdash; Deep neural networks with numpy 1.0.1 documentation</title>
+  <title>Network’s Design and architecture &mdash; Deep neural networks with numpy 1.0.1 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="neuralnetwork module" href="neuralnetwork.html" />
-    <link rel="prev" title="initializeparameters module" href="initializeparameters.html" /> 
+    <link rel="next" title="Main File and example implementation" href="neuralnetwork.html" />
+    <link rel="prev" title="Parameters initialization module" href="initializeparameters.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,11 +84,11 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">deep-neural-network-with-numpy</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Deep Neural Network with numpy</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="activations.html">activations module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="initializeparameters.html">initializeparameters module</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">network_utils module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="neuralnetwork.html">neuralnetwork module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="initializeparameters.html">Parameters initialization module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Network’s Design and architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neuralnetwork.html">Main File and example implementation</a></li>
 </ul>
 </li>
 </ul>
@@ -137,9 +137,9 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="modules.html">deep-neural-network-with-numpy</a> &raquo;</li>
+          <li><a href="modules.html">Deep Neural Network with numpy</a> &raquo;</li>
         
-      <li>network_utils module</li>
+      <li>Network’s Design and architecture</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -159,7 +159,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="module-network_utils">
-<span id="network-utils-module"></span><h1>network_utils module<a class="headerlink" href="#module-network_utils" title="Permalink to this headline">¶</a></h1>
+<span id="network-s-design-and-architecture"></span><h1>Network’s Design and architecture<a class="headerlink" href="#module-network_utils" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="network_utils.NeuralNetwork">
 <em class="property">class </em><code class="sig-prename descclassname">network_utils.</code><code class="sig-name descname">NeuralNetwork</code><a class="headerlink" href="#network_utils.NeuralNetwork" title="Permalink to this definition">¶</a></dt>
@@ -197,36 +197,56 @@ grads[“db” + str(l)] = …</p>
 <dl class="py method">
 <dt id="network_utils.NeuralNetwork.L_model_forward">
 <code class="sig-name descname">L_model_forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.L_model_forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Arguments:
-X – data, numpy array of shape (input size, number of examples)
-parameters – output of initialize_parameters_deep()</p>
-<p>Returns:
-AL – last post-activation value
-caches – list of caches containing every cache of linear_activation_forward()
-(there are L-1 of them, indexed from 0 to L-1)</p>
+<dd><dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>X – data, numpy array of shape (input size, number of examples)</p></li>
+<li><p>parameters – output of initialize_parameters_deep()</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>AL – last post-activation value</p></li>
+<li><p>caches – list of caches containing every cache of linear_activation_forward() (there are L-1 of them, indexed from 0 to L-1)</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="network_utils.NeuralNetwork.compute_cost">
 <code class="sig-name descname">compute_cost</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.compute_cost" title="Permalink to this definition">¶</a></dt>
-<dd><p>Arguments:
-AL – probability vector corresponding to your label predictions, shape (1, number of examples)
-Y – true “label” vector (for example: containing 0 if non-cat, 1 if cat), shape (1, number of examples)</p>
-<p>Returns:
-cost – cross-entropy cost</p>
+<dd><dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>AL – probability vector corresponding to your label predictions, shape (1, number of examples)</p></li>
+<li><p>Y – true “label” vector (for example: containing 0 if non-cat, 1 if cat), shape (1, number of examples)</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>cost – cross-entropy cost</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="network_utils.NeuralNetwork.linear_activation_backward">
 <code class="sig-name descname">linear_activation_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dA</span></em>, <em class="sig-param"><span class="n">cache</span></em>, <em class="sig-param"><span class="n">activation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.linear_activation_backward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Arguments:
-dA – post-activation gradient for current layer l
-cache – tuple of values (linear_cache, activation_cache) we store for computing backward propagation efficiently
-activation – the activation to be used in this layer, stored as a text string: “sigmoid” or “relu”</p>
-<p>Returns:
-dA_prev – Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev
-dW – Gradient of the cost with respect to W (current layer l), same shape as W
-db – Gradient of the cost with respect to b (current layer l), same shape as b</p>
+<dd><dl class="simple">
+<dt>Back propagation unit</dt><dd><dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p>dA – post-activation gradient for current layer l</p></li>
+<li><p>cache – tuple of values (linear_cache, activation_cache) we store for computing backward propagation efficiently</p></li>
+<li><p>activation – the activation to be used in this layer, stored as a text string: “sigmoid” or “relu”</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>dA_prev – Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev</p></li>
+<li><p>dW – Gradient of the cost with respect to W (current layer l), same shape as W</p></li>
+<li><p>db – Gradient of the cost with respect to b (current layer l), same shape as b</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -251,13 +271,19 @@ db – Gradient of the cost with respect to b (current layer l), same shape as b
 <dl class="py method">
 <dt id="network_utils.NeuralNetwork.linear_backward">
 <code class="sig-name descname">linear_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dZ</span></em>, <em class="sig-param"><span class="n">cache</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.linear_backward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Arguments:
-dZ – Gradient of the cost with respect to the linear output (of current layer l)
-cache – tuple of values (A_prev, W, b) coming from the forward propagation in the current layer</p>
-<p>Returns:
-dA_prev – Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev
-dW – Gradient of the cost with respect to W (current layer l), same shape as W
-db – Gradient of the cost with respect to b (current layer l), same shape as b</p>
+<dd><dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>dZ – Gradient of the cost with respect to the linear output (of current layer l)</p></li>
+<li><p>cache – tuple of values (A_prev, W, b) coming from the forward propagation in the current layer</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>dA_prev – Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev</p></li>
+<li><p>dW – Gradient of the cost with respect to W (current layer l), same shape as W</p></li>
+<li><p>db – Gradient of the cost with respect to b (current layer l), same shape as b</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -294,23 +320,39 @@ p – predictions for the given dataset X</p>
 <dl class="py method">
 <dt id="network_utils.NeuralNetwork.relu_backward">
 <code class="sig-name descname">relu_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dA</span></em>, <em class="sig-param"><span class="n">cache</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.relu_backward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implement the backward propagation for a single RELU unit.</p>
-<p>Arguments:
-dA – post-activation gradient, of any shape
-cache – ‘Z’ where we store for computing backward propagation efficiently</p>
-<p>Returns:
-dZ – Gradient of the cost with respect to Z</p>
+<dd><p>Implements the backward propagation for a single RELU unit.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>dA – post-activation gradient, of any shape</p></li>
+<li><p>cache – ‘Z’ where we store for computing backward propagation efficiently</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>dZ – Gradient of the cost with respect to Z</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt id="network_utils.NeuralNetwork.sigmoid_backward">
 <code class="sig-name descname">sigmoid_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dA</span></em>, <em class="sig-param"><span class="n">cache</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.sigmoid_backward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implement the backward propagation for a single SIGMOID unit.</p>
-<p>Arguments:
-dA – post-activation gradient, of any shape
-cache – ‘Z’ where we store for computing backward propagation efficiently</p>
-<p>Returns:
-dZ – Gradient of the cost with respect to Z</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p>dA – post-activation gradient, of any shape</p></li>
+<li><p>cache – ‘Z’ where we store for computing backward propagation efficiently</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>dZ – Gradient of the cost with respect to Z</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
@@ -337,10 +379,10 @@ parameters[“b” + str(l)] = …</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="neuralnetwork.html" class="btn btn-neutral float-right" title="neuralnetwork module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="neuralnetwork.html" class="btn btn-neutral float-right" title="Main File and example implementation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="initializeparameters.html" class="btn btn-neutral float-left" title="initializeparameters module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="initializeparameters.html" class="btn btn-neutral float-left" title="Parameters initialization module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

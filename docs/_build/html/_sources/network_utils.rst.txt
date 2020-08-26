@@ -1,5 +1,5 @@
-network\_utils module
-=====================
+Network's Design and architecture
+=================================
 
 .. automodule:: network_utils
    :members:
