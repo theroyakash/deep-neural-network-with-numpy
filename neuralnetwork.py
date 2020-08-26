@@ -33,7 +33,7 @@ test_x = test_x_flatten/255.
 # Make the neural neural network
 neural_network = NeuralNetwork()
 layers_dims = [12288, 20, 7, 5, 1]
-iterations = 100
+iterations = 10000
 
 params = neural_network.L_layer_model(train_x, train_y, layers_dims, learning_rate = 0.0075, num_iterations = iterations, print_cost = True)
 
