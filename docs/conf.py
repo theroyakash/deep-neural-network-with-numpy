@@ -33,7 +33,10 @@ master_doc = 'index'
 # ones.
 extensions = ['sphinx.ext.autodoc']
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 
