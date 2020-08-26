@@ -39,7 +39,7 @@ class NeuralNetwork():
 		Returns:
 		A -- the output of the activation function, also called the post-activation value 
 		cache -- a python tuple containing "linear_cache" and "activation_cache";
-				stored for computing the backward pass efficiently
+		stored for computing the backward pass efficiently
 		"""
 		
 		if activation == "sigmoid":
@@ -66,7 +66,7 @@ class NeuralNetwork():
 		Returns:
 		AL -- last post-activation value
 		caches -- list of caches containing every cache of linear_activation_forward() 
-				(there are L-1 of them, indexed from 0 to L-1)
+		(there are L-1 of them, indexed from 0 to L-1)
 		"""
 
 		caches = []
@@ -212,14 +212,14 @@ class NeuralNetwork():
 		AL -- probability vector, output of the forward propagation (L_model_forward())
 		Y -- true "label" vector
 		caches -- list of caches containing:
-					every cache of linear_activation_forward() with "relu" (it's caches[l], for l in range(L-1) i.e l = 0...L-2)
-					the cache of linear_activation_forward() with "sigmoid" (it's caches[L-1])
+		every cache of linear_activation_forward() with "relu" (it's caches[l], for l in range(L-1) i.e l = 0...L-2)
+		the cache of linear_activation_forward() with "sigmoid" (it's caches[L-1])
 		
 		Returns:
 		grads -- A dictionary with the gradients
-				grads["dA" + str(l)] = ... 
-				grads["dW" + str(l)] = ...
-				grads["db" + str(l)] = ... 
+		grads["dA" + str(l)] = ... 
+		grads["dW" + str(l)] = ...
+		grads["db" + str(l)] = ... 
 		"""
 		grads = {}
 		L = len(caches) # the number of layers
@@ -256,8 +256,8 @@ class NeuralNetwork():
 		
 		Returns:
 		parameters -- python dictionary containing your updated parameters 
-					parameters["W" + str(l)] = ... 
-					parameters["b" + str(l)] = ...
+		parameters["W" + str(l)] = ... 
+		parameters["b" + str(l)] = ...
 		"""
 		
 		L = len(parameters) // 2 # number of layers in the neural network

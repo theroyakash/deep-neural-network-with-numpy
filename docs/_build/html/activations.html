@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>activations module &#8212; Deep neural networks with numpy 1.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="initializeparameters module" href="initializeparameters.html" />
+    <link rel="prev" title="deep-neural-network-with-numpy" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-activations">
+<span id="activations-module"></span><h1>activations module<a class="headerlink" href="#module-activations" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="activations.relu">
+<code class="sig-prename descclassname">activations.</code><code class="sig-name descname">relu</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Z</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.relu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement the RELU function.</p>
+<p>Arguments:
+Z – Output of the linear layer, of any shape</p>
+<p>Returns:
+A – Post-activation parameter, of the same shape as Z
+cache – a python dictionary containing “A” ; stored for computing the backward pass efficiently</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="activations.sigmoid">
+<code class="sig-prename descclassname">activations.</code><code class="sig-name descname">sigmoid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Z</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.sigmoid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements the sigmoid activation in numpy</p>
+<p>Arguments:
+Z – numpy array of any shape</p>
+<p>Returns:
+A – output of sigmoid(z), same shape as Z
+cache – returns Z as well, useful during backpropagation</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Deep neural networks with numpy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">deep-neural-network-with-numpy</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">activations module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="initializeparameters.html">initializeparameters module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_utils.html">network_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neuralnetwork.html">neuralnetwork module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">deep-neural-network-with-numpy</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">deep-neural-network-with-numpy</a></li>
+      <li>Next: <a href="initializeparameters.html" title="next chapter">initializeparameters module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, theroyakash.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/activations.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
