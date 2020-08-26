@@ -4,12 +4,12 @@ def sigmoid(Z):
     """
     Implements the sigmoid activation in numpy
 
-    Arguments:
-    Z -- numpy array of any shape
+        Args:
+            - Z -- numpy array of any shape
 
-    Returns:
-    A -- output of sigmoid(z), same shape as Z
-    cache -- returns Z as well, useful during backpropagation
+        Returns:
+            - A -- output of `sigmoid(z)`, same shape as Z
+            - cache -- returns Z as well, useful during backpropagation
     """
 
     A = 1/(1+np.exp(-Z))
@@ -21,12 +21,12 @@ def relu(Z):
     """
     Implement the RELU function.
 
-    Arguments:
-    Z -- Output of the linear layer, of any shape
+        Arguments:
+            - Z -- Output of the linear layer, of any shape
 
-    Returns:
-    A -- Post-activation parameter, of the same shape as Z
-    cache -- a python dictionary containing "A" ; stored for computing the backward pass efficiently
+        Returns:
+            - A -- Post-activation parameter, of the same shape as Z
+            - cache -- a python dictionary containing "A" ; stored for computing the backward pass efficiently
     """
 
     A = np.maximum(0,Z)
