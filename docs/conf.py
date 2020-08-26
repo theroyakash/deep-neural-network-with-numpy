@@ -10,19 +10,19 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+sys.path.insert(0, os.path.abspath('..'))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'Deep Neural Network with Numpy'
+project = 'Deep Neural Networks in Numpy'
 copyright = '2020, theroyakash'
 author = 'theroyakash'
-
+master_doc = 'index'
 # The full version, including alpha/beta/rc tags
-release = '1.0.2'
+release = '1.0.1'
 
 
 # -- General configuration ---------------------------------------------------
