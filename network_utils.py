@@ -58,14 +58,13 @@ class NeuralNetwork():
 
 	def L_model_forward(self, X, parameters):
 		"""
-		Arguments:
-		X -- data, numpy array of shape (input size, number of examples)
-		parameters -- output of initialize_parameters_deep()
+		Args:
+			- X -- data, numpy array of shape (input size, number of examples)
+			- parameters -- output of initialize_parameters_deep()
 
 		Returns:
-		AL -- last post-activation value
-		caches -- list of caches containing every cache of linear_activation_forward()
-		(there are L-1 of them, indexed from 0 to L-1)
+			- AL -- last post-activation value
+			- caches -- list of caches containing every cache of linear_activation_forward() (there are L-1 of them, indexed from 0 to L-1)
 		"""
 
 		caches = []
@@ -90,12 +89,12 @@ class NeuralNetwork():
 	# Cost computation:
 	def compute_cost(self, AL, Y):
 		"""
-		Arguments:
-		AL -- probability vector corresponding to your label predictions, shape (1, number of examples)
-		Y -- true "label" vector (for example: containing 0 if non-cat, 1 if cat), shape (1, number of examples)
+		Args:
+			- AL -- probability vector corresponding to your label predictions, shape (1, number of examples)
+			- Y -- true "label" vector (for example: containing 0 if non-cat, 1 if cat), shape (1, number of examples)
 
 		Returns:
-		cost -- cross-entropy cost
+			- cost -- cross-entropy cost
 		"""
 
 		m = Y.shape[1]
@@ -115,14 +114,14 @@ class NeuralNetwork():
 
 	def linear_backward(self, dZ, cache):
 		"""
-		Arguments:
-		dZ -- Gradient of the cost with respect to the linear output (of current layer l)
-		cache -- tuple of values (A_prev, W, b) coming from the forward propagation in the current layer
+		Args:
+			- dZ -- Gradient of the cost with respect to the linear output (of current layer l)
+			- cache -- tuple of values (A_prev, W, b) coming from the forward propagation in the current layer
 
 		Returns:
-		dA_prev -- Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev
-		dW -- Gradient of the cost with respect to W (current layer l), same shape as W
-		db -- Gradient of the cost with respect to b (current layer l), same shape as b
+			- dA_prev -- Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev
+			- dW -- Gradient of the cost with respect to W (current layer l), same shape as W
+			- db -- Gradient of the cost with respect to b (current layer l), same shape as b
 		"""
 		A_prev, W, b = cache
 		m = A_prev.shape[1]
@@ -141,14 +140,14 @@ class NeuralNetwork():
 
 	def relu_backward(self, dA, cache):
 		"""
-		Implement the backward propagation for a single RELU unit.
+		Implements the backward propagation for a single RELU unit.
 
-		Arguments:
-		dA -- post-activation gradient, of any shape
-		cache -- 'Z' where we store for computing backward propagation efficiently
+			Args:
+				- dA -- post-activation gradient, of any shape
+				- cache -- 'Z' where we store for computing backward propagation efficiently
 
-		Returns:
-		dZ -- Gradient of the cost with respect to Z
+			Returns:
+				- dZ -- Gradient of the cost with respect to Z
 		"""
 
 		Z = cache
@@ -164,12 +163,12 @@ class NeuralNetwork():
 		"""
 		Implement the backward propagation for a single SIGMOID unit.
 
-		Arguments:
-		dA -- post-activation gradient, of any shape
-		cache -- 'Z' where we store for computing backward propagation efficiently
+			Arguments:
+				- dA -- post-activation gradient, of any shape
+				- cache -- 'Z' where we store for computing backward propagation efficiently
 
-		Returns:
-		dZ -- Gradient of the cost with respect to Z
+			Returns:
+				- dZ -- Gradient of the cost with respect to Z
 		"""
 
 		Z = cache
@@ -181,15 +180,16 @@ class NeuralNetwork():
 
 	def linear_activation_backward(self, dA, cache, activation):
 		"""
-		Arguments:
-		dA -- post-activation gradient for current layer l
-		cache -- tuple of values (linear_cache, activation_cache) we store for computing backward propagation efficiently
-		activation -- the activation to be used in this layer, stored as a text string: "sigmoid" or "relu"
+		Back propagation unit
+			Arguments:
+				- dA -- post-activation gradient for current layer l
+				- cache -- tuple of values (linear_cache, activation_cache) we store for computing backward propagation efficiently
+				- activation -- the activation to be used in this layer, stored as a text string: "sigmoid" or "relu"
 
-		Returns:
-		dA_prev -- Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev
-		dW -- Gradient of the cost with respect to W (current layer l), same shape as W
-		db -- Gradient of the cost with respect to b (current layer l), same shape as b
+			Returns:
+				- dA_prev -- Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev
+				- dW -- Gradient of the cost with respect to W (current layer l), same shape as W
+				- db -- Gradient of the cost with respect to b (current layer l), same shape as b
 		"""
 		linear_cache, activation_cache = cache
 
