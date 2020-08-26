@@ -10,7 +10,7 @@ Welcome to Deep Neural Network with Numpy's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   modules
 
 Indices and tables
 ==================
