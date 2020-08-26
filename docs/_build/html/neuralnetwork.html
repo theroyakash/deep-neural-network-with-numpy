@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>neuralnetwork module &#8212; Deep Neural Networks in Numpy 1.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="deep-neural-network-with-numpy" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-neuralnetwork">
+<span id="neuralnetwork-module"></span><h1>neuralnetwork module<a class="headerlink" href="#module-neuralnetwork" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="neuralnetwork.L_layer_model">
+<code class="sig-prename descclassname">neuralnetwork.</code><code class="sig-name descname">L_layer_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">Y</span></em>, <em class="sig-param"><span class="n">layers_dims</span></em>, <em class="sig-param"><span class="n">learning_rate</span><span class="o">=</span><span class="default_value">0.0075</span></em>, <em class="sig-param"><span class="n">num_iterations</span><span class="o">=</span><span class="default_value">3000</span></em>, <em class="sig-param"><span class="n">print_cost</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuralnetwork.L_layer_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments:
+X – data, numpy array of shape (num_px * num_px * 3, number of examples)
+Y – true “label” vector (containing 0 if cat, 1 if non-cat), of shape (1, number of examples)
+layers_dims – list containing the input size and each layer size, of length (number of layers + 1).
+learning_rate – learning rate of the gradient descent update rule
+num_iterations – number of iterations of the optimization loop
+print_cost – if True, it prints the cost every 100 steps</p>
+<p>Returns:
+parameters – parameters learnt by the model. They can then be used to predict.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="neuralnetwork.L_model_backward">
+<code class="sig-prename descclassname">neuralnetwork.</code><code class="sig-name descname">L_model_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em>, <em class="sig-param"><span class="n">caches</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuralnetwork.L_model_backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments:
+AL – probability vector, output of the forward propagation (L_model_forward())
+Y – true “label” vector
+caches – list of caches containing:</p>
+<blockquote>
+<div><p>every cache of linear_activation_forward() with “relu” (it’s caches[l], for l in range(L-1) i.e l = 0…L-2)
+the cache of linear_activation_forward() with “sigmoid” (it’s caches[L-1])</p>
+</div></blockquote>
+<p>Returns:
+grads – A dictionary with the gradients</p>
+<blockquote>
+<div><p>grads[“dA” + str(l)] = … 
+grads[“dW” + str(l)] = …
+grads[“db” + str(l)] = …</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="neuralnetwork.L_model_forward">
+<code class="sig-prename descclassname">neuralnetwork.</code><code class="sig-name descname">L_model_forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuralnetwork.L_model_forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments:
+X – data, numpy array of shape (input size, number of examples)
+parameters – output of initialize_parameters_deep()</p>
+<p>Returns:
+AL – last post-activation value
+caches – list of caches containing every cache of linear_activation_forward()</p>
+<blockquote>
+<div><p>(there are L-1 of them, indexed from 0 to L-1)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="neuralnetwork.compute_cost">
+<code class="sig-prename descclassname">neuralnetwork.</code><code class="sig-name descname">compute_cost</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuralnetwork.compute_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments:
+AL – probability vector corresponding to your label predictions, shape (1, number of examples)
+Y – true “label” vector (for example: containing 0 if non-cat, 1 if cat), shape (1, number of examples)</p>
+<p>Returns:
+cost – cross-entropy cost</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="neuralnetwork.initialize_parameters">
+<code class="sig-prename descclassname">neuralnetwork.</code><code class="sig-name descname">initialize_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_x</span></em>, <em class="sig-param"><span class="n">n_h</span></em>, <em class="sig-param"><span class="n">n_y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuralnetwork.initialize_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Argument:
+n_x – size of the input layer
+n_h – size of the hidden layer
+n_y – size of the output layer</p>
+<p>Returns:
+params – python dictionary containing parameters:</p>
+<blockquote>
+<div><p>W1 – weight matrix of shape (n_h, n_x)
+b1 – bias vector of shape (n_h, 1)
+W2 – weight matrix of shape (n_y, n_h)
+b2 – bias vector of shape (n_y, 1)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="neuralnetwork.initialize_parameters_deep">
+<code class="sig-prename descclassname">neuralnetwork.</code><code class="sig-name descname">initialize_parameters_deep</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">layer_dims</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuralnetwork.initialize_parameters_deep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments:
+layer_dims – python array (list) containing the dimensions of each layer in our network</p>
+<p>Returns:
+parameters – python dictionary containing your parameters “W1”, “b1”, …, “WL”, “bL”:</p>
+<blockquote>
+<div><p>Wl – weight matrix of shape (layer_dims[l], layer_dims[l-1])
+bl – bias vector of shape (layer_dims[l], 1)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py data">
+<dt id="neuralnetwork.layers_dims">
+<code class="sig-prename descclassname">neuralnetwork.</code><code class="sig-name descname">layers_dims</code><em class="property"> = [12288, 20, 7, 5, 1]</em><a class="headerlink" href="#neuralnetwork.layers_dims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementation a L-layer neural network: 
+Looks like this: [LINEAR –&gt; RELU] * (L-1) –&gt; LINEAR –&gt; SIGMOID:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="neuralnetwork.linear_activation_backward">
+<code class="sig-prename descclassname">neuralnetwork.</code><code class="sig-name descname">linear_activation_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dA</span></em>, <em class="sig-param"><span class="n">cache</span></em>, <em class="sig-param"><span class="n">activation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuralnetwork.linear_activation_backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments:
+dA – post-activation gradient for current layer l 
+cache – tuple of values (linear_cache, activation_cache) we store for computing backward propagation efficiently
+activation – the activation to be used in this layer, stored as a text string: “sigmoid” or “relu”</p>
+<p>Returns:
+dA_prev – Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev
+dW – Gradient of the cost with respect to W (current layer l), same shape as W
+db – Gradient of the cost with respect to b (current layer l), same shape as b</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="neuralnetwork.linear_activation_forward">
+<code class="sig-prename descclassname">neuralnetwork.</code><code class="sig-name descname">linear_activation_forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A_prev</span></em>, <em class="sig-param"><span class="n">W</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">activation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuralnetwork.linear_activation_forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments:
+A_prev – activations from previous layer (or input data): (size of previous layer, number of examples)
+W – weights matrix: numpy array of shape (size of current layer, size of previous layer)
+b – bias vector, numpy array of shape (size of the current layer, 1)
+activation – the activation to be used in this layer, stored as a text string: “sigmoid” or “relu”</p>
+<p>Returns:
+A – the output of the activation function, also called the post-activation value 
+cache – a python tuple containing “linear_cache” and “activation_cache”;</p>
+<blockquote>
+<div><p>stored for computing the backward pass efficiently</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="neuralnetwork.linear_backward">
+<code class="sig-prename descclassname">neuralnetwork.</code><code class="sig-name descname">linear_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dZ</span></em>, <em class="sig-param"><span class="n">cache</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuralnetwork.linear_backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments:
+dZ – Gradient of the cost with respect to the linear output (of current layer l)
+cache – tuple of values (A_prev, W, b) coming from the forward propagation in the current layer</p>
+<p>Returns:
+dA_prev – Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev
+dW – Gradient of the cost with respect to W (current layer l), same shape as W
+db – Gradient of the cost with respect to b (current layer l), same shape as b</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="neuralnetwork.linear_forward">
+<code class="sig-prename descclassname">neuralnetwork.</code><code class="sig-name descname">linear_forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">W</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuralnetwork.linear_forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments:
+A – activations from previous layer (or input data): (size of previous layer, number of examples)
+W – weights matrix: numpy array of shape (size of current layer, size of previous layer)
+b – bias vector, numpy array of shape (size of the current layer, 1)</p>
+<p>Returns:
+Z – the input of the activation function, also called pre-activation parameter 
+cache – a python tuple containing “A”, “W” and “b” ; stored for computing the backward pass efficiently</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="neuralnetwork.two_layer_model">
+<code class="sig-prename descclassname">neuralnetwork.</code><code class="sig-name descname">two_layer_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">Y</span></em>, <em class="sig-param"><span class="n">layers_dims</span></em>, <em class="sig-param"><span class="n">learning_rate</span><span class="o">=</span><span class="default_value">0.0075</span></em>, <em class="sig-param"><span class="n">num_iterations</span><span class="o">=</span><span class="default_value">3000</span></em>, <em class="sig-param"><span class="n">print_cost</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuralnetwork.two_layer_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments:
+X – input data, of shape (n_x, number of examples)
+Y – true “label” vector (containing 1 if cat, 0 if non-cat), of shape (1, number of examples)
+layers_dims – dimensions of the layers (n_x, n_h, n_y)
+num_iterations – number of iterations of the optimization loop
+learning_rate – learning rate of the gradient descent update rule
+print_cost – If set to True, this will print the cost every 100 iterations</p>
+<p>Returns:
+parameters – a dictionary containing W1, W2, b1, and b2</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="neuralnetwork.update_parameters">
+<code class="sig-prename descclassname">neuralnetwork.</code><code class="sig-name descname">update_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">grads</span></em>, <em class="sig-param"><span class="n">learning_rate</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuralnetwork.update_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments:
+parameters – python dictionary containing your parameters 
+grads – python dictionary containing your gradients, output of L_model_backward</p>
+<p>Returns:
+parameters – python dictionary containing your updated parameters</p>
+<blockquote>
+<div><p>parameters[“W” + str(l)] = … 
+parameters[“b” + str(l)] = …</p>
+</div></blockquote>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Deep Neural Networks in Numpy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">deep-neural-network-with-numpy</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">neuralnetwork module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">deep-neural-network-with-numpy</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">deep-neural-network-with-numpy</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, theroyakash.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/neuralnetwork.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
