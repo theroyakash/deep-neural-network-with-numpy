@@ -6,7 +6,7 @@ from initializeparameters import InitializeParameters
 class NeuralNetwork():
 
 	def linear_forward(self, A, W, b):
-		"""
+		"""	
 		Arguments:
 		A -- activations from previous layer (or input data): (size of previous layer, number of examples)
 		W -- weights matrix: numpy array of shape (size of current layer, size of previous layer)
