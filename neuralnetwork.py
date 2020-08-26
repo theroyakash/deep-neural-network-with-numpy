@@ -5,11 +5,11 @@ from network_utils import NeuralNetwork
 
 # Data
 def load_data():
-    train_dataset = h5py.File('Datasets/train_catvnoncat.h5', "r")
+    train_dataset = h5py.File('/home/runner/deep-neural-network-with-numpy/Datasets/train_catvnoncat.h5', "r")
     train_set_x_orig = np.array(train_dataset["train_set_x"][:]) # your train set features
     train_set_y_orig = np.array(train_dataset["train_set_y"][:]) # your train set labels
 
-    test_dataset = h5py.File('Datasets/test_catvnoncat.h5', "r")
+    test_dataset = h5py.File('/home/runner/deep-neural-network-with-numpy/Datasets/test_catvnoncat.h5', "r")
     test_set_x_orig = np.array(test_dataset["test_set_x"][:]) # your test set features
     test_set_y_orig = np.array(test_dataset["test_set_y"][:]) # your test set labels
 
@@ -33,7 +33,7 @@ test_x = test_x_flatten/255.
 # Make the neural neural network
 neural_network = NeuralNetwork()
 layers_dims = [12288, 20, 7, 5, 1]
-iterations = 2500
+iterations = 100
 
 params = neural_network.L_layer_model(train_x, train_y, layers_dims, learning_rate = 0.0075, num_iterations = iterations, print_cost = True)
 
