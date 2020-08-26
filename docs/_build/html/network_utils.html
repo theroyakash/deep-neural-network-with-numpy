@@ -167,31 +167,46 @@
 <dl class="py method">
 <dt id="network_utils.NeuralNetwork.L_layer_model">
 <code class="sig-name descname">L_layer_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">Y</span></em>, <em class="sig-param"><span class="n">layers_dims</span></em>, <em class="sig-param"><span class="n">learning_rate</span><span class="o">=</span><span class="default_value">0.0075</span></em>, <em class="sig-param"><span class="n">num_iterations</span><span class="o">=</span><span class="default_value">3000</span></em>, <em class="sig-param"><span class="n">print_cost</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.L_layer_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Arguments:
-X – data, numpy array of shape (num_px * num_px * 3, number of examples)
-Y – true “label” vector (containing 0 if cat, 1 if non-cat), of shape (1, number of examples)
-layers_dims – list containing the input size and each layer size, of length (number of layers + 1).
-learning_rate – learning rate of the gradient descent update rule
-num_iterations – number of iterations of the optimization loop
-print_cost – if True, it prints the cost every 100 steps</p>
-<p>Returns:
-parameters – parameters learnt by the model. They can then be used to predict.</p>
+<dd><dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>X: data, numpy array of shape (num_px * num_px * 3, number of examples)</p></li>
+<li><p>Y: true “label” vector (containing 0 if cat, 1 if non-cat), of shape (1, number of examples)</p></li>
+<li><p>layers_dims: list containing the input size and each layer size, of length (number of layers + 1).</p></li>
+<li><p>learning_rate: learning rate of the gradient descent update rule</p></li>
+<li><p>num_iterations: number of iterations of the optimization loop</p></li>
+<li><p>print_cost: if True, it prints the cost every 100 steps</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>parameters: parameters learnt by the model. They can then be used to predict.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="network_utils.NeuralNetwork.L_model_backward">
 <code class="sig-name descname">L_model_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em>, <em class="sig-param"><span class="n">caches</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.L_model_backward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Arguments:
-AL – probability vector, output of the forward propagation (L_model_forward())
-Y – true “label” vector
-caches – list of caches containing:
-every cache of linear_activation_forward() with “relu” (it’s caches[l], for l in range(L-1) i.e l = 0…L-2)
-the cache of linear_activation_forward() with “sigmoid” (it’s caches[L-1])</p>
-<p>Returns:
-grads – A dictionary with the gradients
-grads[“dA” + str(l)] = …
-grads[“dW” + str(l)] = …
-grads[“db” + str(l)] = …</p>
+<dd><dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>AL: probability vector, output of the forward propagation (L_model_forward())</p></li>
+<li><p>Y: true “label” vector</p></li>
+<li><p>caches: list of caches containing: every cache of linear_activation_forward() with “relu” (it’s caches[l], for l in range(L-1) i.e l = 0…L-2) the cache of linear_activation_forward() with “sigmoid” (it’s caches[L-1])</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>grads: A dictionary with the gradients</dt><dd><ul>
+<li><p><cite>grads[“dA” + str(l)] = …</cite></p></li>
+<li><p><cite>grads[“dW” + str(l)] = …</cite></p></li>
+<li><p><cite>grads[“db” + str(l)] = …</cite></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -199,13 +214,13 @@ grads[“db” + str(l)] = …</p>
 <code class="sig-name descname">L_model_forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.L_model_forward" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>X – data, numpy array of shape (input size, number of examples)</p></li>
-<li><p>parameters – output of initialize_parameters_deep()</p></li>
+<li><p>X: data, numpy array of shape (input size, number of examples)</p></li>
+<li><p>parameters: output of initialize_parameters_deep()</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>AL – last post-activation value</p></li>
-<li><p>caches – list of caches containing every cache of linear_activation_forward() (there are L-1 of them, indexed from 0 to L-1)</p></li>
+<li><p>AL: last post-activation value</p></li>
+<li><p>caches: list of caches containing every cache of linear_activation_forward() (there are L-1 of them, indexed from 0 to L-1)</p></li>
 </ul>
 </dd>
 </dl>
@@ -216,12 +231,12 @@ grads[“db” + str(l)] = …</p>
 <code class="sig-name descname">compute_cost</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.compute_cost" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>AL – probability vector corresponding to your label predictions, shape (1, number of examples)</p></li>
-<li><p>Y – true “label” vector (for example: containing 0 if non-cat, 1 if cat), shape (1, number of examples)</p></li>
+<li><p>AL: probability vector corresponding to your label predictions, shape (1, number of examples)</p></li>
+<li><p>Y: true “label” vector (for example: containing 0 if non-cat, 1 if cat), shape (1, number of examples)</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>cost – cross-entropy cost</p></li>
+<li><p>cost: cross-entropy cost</p></li>
 </ul>
 </dd>
 </dl>
@@ -232,16 +247,16 @@ grads[“db” + str(l)] = …</p>
 <code class="sig-name descname">linear_activation_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dA</span></em>, <em class="sig-param"><span class="n">cache</span></em>, <em class="sig-param"><span class="n">activation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.linear_activation_backward" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Back propagation unit</dt><dd><dl class="simple">
-<dt>Arguments:</dt><dd><ul class="simple">
-<li><p>dA – post-activation gradient for current layer l</p></li>
-<li><p>cache – tuple of values (linear_cache, activation_cache) we store for computing backward propagation efficiently</p></li>
-<li><p>activation – the activation to be used in this layer, stored as a text string: “sigmoid” or “relu”</p></li>
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>dA: post-activation gradient for current layer l</p></li>
+<li><p>cache: tuple of values (linear_cache, activation_cache) we store for computing backward propagation efficiently</p></li>
+<li><p>activation: the activation to be used in this layer, stored as a text string: “sigmoid” or “relu”</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>dA_prev – Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev</p></li>
-<li><p>dW – Gradient of the cost with respect to W (current layer l), same shape as W</p></li>
-<li><p>db – Gradient of the cost with respect to b (current layer l), same shape as b</p></li>
+<li><p>dA_prev: Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev</p></li>
+<li><p>dW: Gradient of the cost with respect to W (current layer l), same shape as W</p></li>
+<li><p>db: Gradient of the cost with respect to b (current layer l), same shape as b</p></li>
 </ul>
 </dd>
 </dl>
@@ -273,14 +288,14 @@ grads[“db” + str(l)] = …</p>
 <code class="sig-name descname">linear_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dZ</span></em>, <em class="sig-param"><span class="n">cache</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.linear_backward" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>dZ – Gradient of the cost with respect to the linear output (of current layer l)</p></li>
-<li><p>cache – tuple of values (A_prev, W, b) coming from the forward propagation in the current layer</p></li>
+<li><p>dZ: Gradient of the cost with respect to the linear output (of current layer l)</p></li>
+<li><p>cache: tuple of values (A_prev, W, b) coming from the forward propagation in the current layer</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>dA_prev – Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev</p></li>
-<li><p>dW – Gradient of the cost with respect to W (current layer l), same shape as W</p></li>
-<li><p>db – Gradient of the cost with respect to b (current layer l), same shape as b</p></li>
+<li><p>dA_prev: Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev</p></li>
+<li><p>dW: Gradient of the cost with respect to W (current layer l), same shape as W</p></li>
+<li><p>db: Gradient of the cost with respect to b (current layer l), same shape as b</p></li>
 </ul>
 </dd>
 </dl>
@@ -298,7 +313,7 @@ grads[“db” + str(l)] = …</p>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>Z: the input of the activation function, also called pre-activation parameter cache – a python tuple containing “A”, “W” and “b” ; stored for computing the backward pass efficiently</p></li>
+<li><p>Z: the input of the activation function, also called pre-activation parameter cache: a python tuple containing “A”, “W” and “b” ; stored for computing the backward pass efficiently</p></li>
 </ul>
 </dd>
 </dl>
@@ -310,11 +325,19 @@ grads[“db” + str(l)] = …</p>
 <dt id="network_utils.NeuralNetwork.predict">
 <code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function is used to predict the results of a  L-layer neural network.</p>
-<p>Arguments:
-X – data set of examples you would like to label
-parameters – parameters of the trained model</p>
-<p>Returns:
-p – predictions for the given dataset X</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>X: data set of examples you would like to label</p></li>
+<li><p>parameters: parameters of the trained model</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>p: predictions for the given dataset X</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
@@ -324,12 +347,12 @@ p – predictions for the given dataset X</p>
 <blockquote>
 <div><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>dA – post-activation gradient, of any shape</p></li>
-<li><p>cache – ‘Z’ where we store for computing backward propagation efficiently</p></li>
+<li><p>dA: post-activation gradient, of any shape</p></li>
+<li><p>cache: ‘Z’ where we store for computing backward propagation efficiently</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>dZ – Gradient of the cost with respect to Z</p></li>
+<li><p>dZ: Gradient of the cost with respect to Z</p></li>
 </ul>
 </dd>
 </dl>
@@ -342,13 +365,13 @@ p – predictions for the given dataset X</p>
 <dd><p>Implement the backward propagation for a single SIGMOID unit.</p>
 <blockquote>
 <div><dl class="simple">
-<dt>Arguments:</dt><dd><ul class="simple">
-<li><p>dA – post-activation gradient, of any shape</p></li>
-<li><p>cache – ‘Z’ where we store for computing backward propagation efficiently</p></li>
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>dA: post-activation gradient, of any shape</p></li>
+<li><p>cache: ‘Z’ where we store for computing backward propagation efficiently</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>dZ – Gradient of the cost with respect to Z</p></li>
+<li><p>dZ: Gradient of the cost with respect to Z</p></li>
 </ul>
 </dd>
 </dl>
@@ -358,13 +381,24 @@ p – predictions for the given dataset X</p>
 <dl class="py method">
 <dt id="network_utils.NeuralNetwork.update_parameters">
 <code class="sig-name descname">update_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">grads</span></em>, <em class="sig-param"><span class="n">learning_rate</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.update_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Arguments:
-parameters – python dictionary containing your parameters
-grads – python dictionary containing your gradients, output of L_model_backward</p>
-<p>Returns:
-parameters – python dictionary containing your updated parameters
-parameters[“W” + str(l)] = …
-parameters[“b” + str(l)] = …</p>
+<dd><dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>parameters: python dictionary containing your parameters</p></li>
+<li><p>grads: python dictionary containing your gradients, output of L_model_backward</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>parameters: python dictionary containing your updated parameters</dt><dd><ul>
+<li><p><cite>parameters[“W” + str(l)] = …</cite></p></li>
+<li><p><cite>parameters[“b” + str(l)] = …</cite></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
