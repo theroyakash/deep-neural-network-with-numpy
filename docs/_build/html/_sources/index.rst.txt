@@ -6,11 +6,6 @@
 Documentation: Deep Neural Networks in Numpy by theroyakash!
 ============================================================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-
 Indices and tables
 ==================
 
