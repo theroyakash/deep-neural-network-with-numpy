@@ -13,6 +13,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Network’s Design and architecture" href="network_utils.html" />
@@ -63,13 +64,13 @@
 <dd><dl class="simple">
 <dt>Initializes parameters with random values</dt><dd><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>layer_dims (List): python array (list) containing the dimensions of each layer in our network</p></li>
+<li><p>layer_dims (<code class="docutils literal notranslate"><span class="pre">List</span></code>): python array (<code class="docutils literal notranslate"><span class="pre">list</span></code>) containing the dimensions of each layer in our network</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
-<dt>parameters – python dictionary containing your parameters <cite>“W1”, “b1”, …, “WL”, “bL”</cite>:</dt><dd><ul class="simple">
-<li><p><cite>Wl</cite> – weight matrix of shape <cite>(layer_dims[l], layer_dims[l-1])</cite></p></li>
-<li><p><cite>bl</cite> – bias vector of shape <cite>(layer_dims[l], 1)</cite></p></li>
+<dt>parameters – python dictionary containing your parameters <code class="docutils literal notranslate"><span class="pre">&quot;W1&quot;,</span> <span class="pre">&quot;b1&quot;,</span> <span class="pre">...,</span> <span class="pre">&quot;WL&quot;,</span> <span class="pre">&quot;bL&quot;</span></code>:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Wl</span></code> – weight matrix of shape <code class="docutils literal notranslate"><span class="pre">(layer_dims[l],</span> <span class="pre">layer_dims[l-1])</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bl</span></code> – bias vector of shape <code class="docutils literal notranslate"><span class="pre">(layer_dims[l],</span> <span class="pre">1)</span></code></p></li>
 </ul>
 </dd>
 </dl>

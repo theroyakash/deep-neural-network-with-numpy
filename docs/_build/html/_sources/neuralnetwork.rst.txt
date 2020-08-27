@@ -1,5 +1,5 @@
-Main File and example implementation
-====================================
+An Example implementation
+=========================
 
 .. automodule:: neuralnetwork
    :members:

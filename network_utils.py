@@ -10,12 +10,12 @@ class NeuralNetwork():
 		"""
 		Implements a linear forward step
 			Args:
-				- A: activations from previous layer (or input data): (size of previous layer, number of examples)
-				- W: weights matrix: numpy array of shape (size of current layer, size of previous layer)
-				- b: bias vector, numpy array of shape (size of the current layer, 1)
+				- ``A``: activations from previous layer (or input data): (size of previous layer, number of examples)
+				- ``W``: weights matrix: numpy array of shape (size of current layer, size of previous layer)
+				- ``b``: bias vector, numpy array of shape (size of the current layer, 1)
 
 			Returns:
-				- Z: the input of the activation function, also called pre-activation parameter cache: a python tuple containing "A", "W" and "b" ; stored for computing the backward pass efficiently
+				- ``Z``: the input of the activation function, also called pre-activation parameter cache: a python tuple containing "A", "W" and "b" ; stored for computing the backward pass efficiently
 
 		"""
 
@@ -31,14 +31,14 @@ class NeuralNetwork():
 	def linear_activation_forward(self, A_prev, W, b, activation):
 		"""
 		Args:
-			- A_prev: activations from previous layer (or input data): (size of previous layer, number of examples)
-			- W: weights matrix: numpy array of shape (size of current layer, size of previous layer)
-			- b: bias vector, numpy array of shape (size of the current layer, 1)
-			- activation: the activation to be used in this layer, stored as a text string: "sigmoid" or "relu"
+			- ``A_prev``: activations from previous layer (or input data): (size of previous layer, number of examples)
+			- ``W``: weights matrix: numpy array of shape (size of current layer, size of previous layer)
+			- ``b``: bias vector, numpy array of shape (size of the current layer, 1)
+			- ``activation``: the activation to be used in this layer, stored as a text string: "sigmoid" or "relu"
 
 		Returns:
-			- A: The output of the activation function, also called the post-activation value
-			- cache: a python tuple containing "linear_cache" and "activation_cache"; stored for computing the backward pass efficiently
+			- ``A``: The output of the activation function, also called the post-activation value
+			- ``cache``: a python tuple containing "linear_cache" and "activation_cache"; stored for computing the backward pass efficiently
 		"""
 
 		if activation == "sigmoid":
@@ -59,12 +59,12 @@ class NeuralNetwork():
 	def L_model_forward(self, X, parameters):
 		"""
 		Args:
-			- X: data, numpy array of shape (input size, number of examples)
-			- parameters: output of initialize_parameters_deep()
+			- ``X``: data, numpy array of shape (input size, number of examples)
+			- ``parameters``: output of initialize_parameters_deep()
 
 		Returns:
-			- AL: last post-activation value
-			- caches: list of caches containing every cache of linear_activation_forward() (there are L-1 of them, indexed from 0 to L-1)
+			- ``AL``: last post-activation value
+			- ``caches``: list of caches containing every cache of linear_activation_forward() (there are L-1 of them, indexed from 0 to L-1)
 		"""
 
 		caches = []
@@ -90,11 +90,11 @@ class NeuralNetwork():
 	def compute_cost(self, AL, Y):
 		"""
 		Args:
-			- AL: probability vector corresponding to your label predictions, shape (1, number of examples)
-			- Y: true "label" vector (for example: containing 0 if non-cat, 1 if cat), shape (1, number of examples)
+			- ``AL``: probability vector corresponding to your label predictions, shape (1, number of examples)
+			- ``Y``: true "label" vector (for example: containing 0 if non-cat, 1 if cat), shape (1, number of examples)
 
 		Returns:
-			- cost: cross-entropy cost
+			- ``cost``: cross-entropy cost
 		"""
 
 		m = Y.shape[1]
@@ -115,13 +115,13 @@ class NeuralNetwork():
 	def linear_backward(self, dZ, cache):
 		"""
 		Args:
-			- dZ: Gradient of the cost with respect to the linear output (of current layer l)
-			- cache: tuple of values (A_prev, W, b) coming from the forward propagation in the current layer
+			- ``dZ``: Gradient of the cost with respect to the linear output (of current layer l)
+			- ``cache``: tuple of values (A_prev, W, b) coming from the forward propagation in the current layer
 
 		Returns:
-			- dA_prev: Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev
-			- dW: Gradient of the cost with respect to W (current layer l), same shape as W
-			- db: Gradient of the cost with respect to b (current layer l), same shape as b
+			- ``dA_prev``: Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev
+			- ``dW``: Gradient of the cost with respect to W (current layer l), same shape as W
+			- ``db``: Gradient of the cost with respect to b (current layer l), same shape as b
 		"""
 		A_prev, W, b = cache
 		m = A_prev.shape[1]
@@ -143,11 +143,11 @@ class NeuralNetwork():
 		Implements the backward propagation for a single RELU unit.
 
 			Args:
-				- dA: post-activation gradient, of any shape
-				- cache: 'Z' where we store for computing backward propagation efficiently
+				- ``dA``: post-activation gradient, of any shape
+				- ``cache``: ``'Z'`` where we store for computing backward propagation efficiently
 
 			Returns:
-				- dZ: Gradient of the cost with respect to Z
+				- ``dZ``: Gradient of the cost with respect to ``Z``
 		"""
 
 		Z = cache
@@ -164,11 +164,11 @@ class NeuralNetwork():
 		Implement the backward propagation for a single SIGMOID unit.
 
 			Args:
-				- dA: post-activation gradient, of any shape
-				- cache: 'Z' where we store for computing backward propagation efficiently
+				- ``dA``: post-activation gradient, of any shape
+				- ``cache``: ``'Z'`` where we store for computing backward propagation efficiently
 
 			Returns:
-				- dZ: Gradient of the cost with respect to Z
+				- ``dZ``: Gradient of the cost with respect to ``Z``
 		"""
 
 		Z = cache
@@ -182,14 +182,14 @@ class NeuralNetwork():
 		"""
 		Back propagation unit
 			Args:
-				- dA: post-activation gradient for current layer l
-				- cache: tuple of values (linear_cache, activation_cache) we store for computing backward propagation efficiently
-				- activation: the activation to be used in this layer, stored as a text string: "sigmoid" or "relu"
+				- ``dA``: post-activation gradient for current layer l
+				- ``cache``: tuple of values (linear_cache, activation_cache) we store for computing backward propagation efficiently
+				- ``activation``: the activation to be used in this layer, stored as a text string: "sigmoid" or "relu"
 
 			Returns:
-				- dA_prev: Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev
-				- dW: Gradient of the cost with respect to W (current layer l), same shape as W
-				- db: Gradient of the cost with respect to b (current layer l), same shape as b
+				- ``dA_prev``: Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev
+				- ``dW``: Gradient of the cost with respect to W (current layer l), same shape as ``W``
+				- ``db``: Gradient of the cost with respect to b (current layer l), same shape as ``b``
 		"""
 		linear_cache, activation_cache = cache
 
@@ -208,15 +208,15 @@ class NeuralNetwork():
 	def L_model_backward(self, AL, Y, caches):
 		"""
 		Args:
-			- AL: probability vector, output of the forward propagation (L_model_forward())
-			- Y: true "label" vector
-			- caches: list of caches containing: every cache of linear_activation_forward() with "relu" (it's caches[l], for l in range(L-1) i.e l = 0...L-2) the cache of linear_activation_forward() with "sigmoid" (it's caches[L-1])
+			- ``AL``: probability vector, output of the forward propagation (L_model_forward())
+			- ``Y``: true "label" vector
+			- ``caches``: list of caches containing: every cache of linear_activation_forward() with "relu" (it's caches[l], for l in range(L-1) i.e l = 0...L-2) the cache of linear_activation_forward() with "sigmoid" (it's caches[L-1])
 
 		Returns:
-			- grads: A dictionary with the gradients
-				- `grads["dA" + str(l)] = ...`
-				- `grads["dW" + str(l)] = ...`
-				- `grads["db" + str(l)] = ...`
+			- ``grads``: A dictionary with the gradients
+				- ``grads["dA" + str(l)] = ...``
+				- ``grads["dW" + str(l)] = ...``
+				- ``grads["db" + str(l)] = ...``
 		"""
 		grads = {}
 		L = len(caches) # the number of layers
@@ -248,13 +248,13 @@ class NeuralNetwork():
 	def update_parameters(self, parameters, grads, learning_rate):
 		"""
 		Args:
-			- parameters: python dictionary containing your parameters
-			- grads: python dictionary containing your gradients, output of L_model_backward
+			- ``parameters``: python dictionary containing your parameters
+			- ``grads``: python dictionary containing your gradients, output of L_model_backward
 
 		Returns:
-			- parameters: python dictionary containing your updated parameters
-				- `parameters["W" + str(l)] = ...`
-				- `parameters["b" + str(l)] = ...`
+			- ``parameters``: python dictionary containing your updated parameters
+				- ``parameters["W" + str(l)] = ...``
+				- ``parameters["b" + str(l)] = ...``
 		"""
 
 		L = len(parameters) // 2 # number of layers in the neural network
@@ -270,15 +270,15 @@ class NeuralNetwork():
 	def L_layer_model(self, X, Y, layers_dims, learning_rate = 0.0075, num_iterations = 3000, print_cost=False): #lr was 0.009
 		"""
 		Args:
-			- X: data, numpy array of shape (num_px * num_px * 3, number of examples)
-			- Y: true "label" vector (containing 0 if cat, 1 if non-cat), of shape (1, number of examples)
-			- layers_dims: list containing the input size and each layer size, of length (number of layers + 1).
-			- learning_rate: learning rate of the gradient descent update rule
-			- num_iterations: number of iterations of the optimization loop
-			- print_cost: if True, it prints the cost every 100 steps
+			- ``X``: data, numpy array of shape ``(num_px * num_px * 3, number of examples)``,
+			- ``Y``: true "label" vector (containing `0` if cat, `1` if non-cat), of shape ``(1, number of examples)``,
+			- ``layers_dims``: list containing the input size and each layer size, of length (number of layers + 1),
+			- ``learning_rate``: learning rate of the gradient descent update rule,
+			- ``num_iterations``: number of iterations of the optimization loop,
+			- ``print_cost``: If ``True``, it prints the cost every 100 steps.
 
 		Returns:
-			- parameters: parameters learnt by the model. They can then be used to predict.
+			- ``parameters``: parameters learnt by the model. They can then be used to predict.
 		"""
 
 		costs = []   # keep track of cost
@@ -322,11 +322,11 @@ class NeuralNetwork():
 		This function is used to predict the results of a  L-layer neural network.
 
 			Args:
-				- X: data set of examples you would like to label
-				- parameters: parameters of the trained model
+				- ``X``: data set of examples you would like to label
+				- ``parameters``: parameters of the trained model
 
 			Returns:
-				- p: predictions for the given dataset X
+				- ``p``: predictions for the given dataset ``X``
 		"""
 
 		m = X.shape[1]

@@ -13,6 +13,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Main File and example implementation" href="neuralnetwork.html" />
@@ -62,16 +63,16 @@
 <code class="sig-name descname">L_layer_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">Y</span></em>, <em class="sig-param"><span class="n">layers_dims</span></em>, <em class="sig-param"><span class="n">learning_rate</span><span class="o">=</span><span class="default_value">0.0075</span></em>, <em class="sig-param"><span class="n">num_iterations</span><span class="o">=</span><span class="default_value">3000</span></em>, <em class="sig-param"><span class="n">print_cost</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.L_layer_model" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>X: data, numpy array of shape (num_px * num_px * 3, number of examples)</p></li>
-<li><p>Y: true “label” vector (containing 0 if cat, 1 if non-cat), of shape (1, number of examples)</p></li>
-<li><p>layers_dims: list containing the input size and each layer size, of length (number of layers + 1).</p></li>
-<li><p>learning_rate: learning rate of the gradient descent update rule</p></li>
-<li><p>num_iterations: number of iterations of the optimization loop</p></li>
-<li><p>print_cost: if True, it prints the cost every 100 steps</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code>: data, numpy array of shape <code class="docutils literal notranslate"><span class="pre">(num_px</span> <span class="pre">*</span> <span class="pre">num_px</span> <span class="pre">*</span> <span class="pre">3,</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">examples)</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code>: true “label” vector (containing <cite>0</cite> if cat, <cite>1</cite> if non-cat), of shape <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">examples)</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">layers_dims</span></code>: list containing the input size and each layer size, of length (number of layers + 1),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">learning_rate</span></code>: learning rate of the gradient descent update rule,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_iterations</span></code>: number of iterations of the optimization loop,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print_cost</span></code>: If <code class="docutils literal notranslate"><span class="pre">True</span></code>, it prints the cost every 100 steps.</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>parameters: parameters learnt by the model. They can then be used to predict.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parameters</span></code>: parameters learnt by the model. They can then be used to predict.</p></li>
 </ul>
 </dd>
 </dl>
@@ -82,17 +83,17 @@
 <code class="sig-name descname">L_model_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em>, <em class="sig-param"><span class="n">caches</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.L_model_backward" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>AL: probability vector, output of the forward propagation (L_model_forward())</p></li>
-<li><p>Y: true “label” vector</p></li>
-<li><p>caches: list of caches containing: every cache of linear_activation_forward() with “relu” (it’s caches[l], for l in range(L-1) i.e l = 0…L-2) the cache of linear_activation_forward() with “sigmoid” (it’s caches[L-1])</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AL</span></code>: probability vector, output of the forward propagation (L_model_forward())</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code>: true “label” vector</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">caches</span></code>: list of caches containing: every cache of linear_activation_forward() with “relu” (it’s caches[l], for l in range(L-1) i.e l = 0…L-2) the cache of linear_activation_forward() with “sigmoid” (it’s caches[L-1])</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
 <li><dl class="simple">
-<dt>grads: A dictionary with the gradients</dt><dd><ul>
-<li><p><cite>grads[“dA” + str(l)] = …</cite></p></li>
-<li><p><cite>grads[“dW” + str(l)] = …</cite></p></li>
-<li><p><cite>grads[“db” + str(l)] = …</cite></p></li>
+<dt><code class="docutils literal notranslate"><span class="pre">grads</span></code>: A dictionary with the gradients</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">grads[&quot;dA&quot;</span> <span class="pre">+</span> <span class="pre">str(l)]</span> <span class="pre">=</span> <span class="pre">...</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grads[&quot;dW&quot;</span> <span class="pre">+</span> <span class="pre">str(l)]</span> <span class="pre">=</span> <span class="pre">...</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grads[&quot;db&quot;</span> <span class="pre">+</span> <span class="pre">str(l)]</span> <span class="pre">=</span> <span class="pre">...</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -107,13 +108,13 @@
 <code class="sig-name descname">L_model_forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.L_model_forward" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>X: data, numpy array of shape (input size, number of examples)</p></li>
-<li><p>parameters: output of initialize_parameters_deep()</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code>: data, numpy array of shape (input size, number of examples)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parameters</span></code>: output of initialize_parameters_deep()</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>AL: last post-activation value</p></li>
-<li><p>caches: list of caches containing every cache of linear_activation_forward() (there are L-1 of them, indexed from 0 to L-1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AL</span></code>: last post-activation value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">caches</span></code>: list of caches containing every cache of linear_activation_forward() (there are L-1 of them, indexed from 0 to L-1)</p></li>
 </ul>
 </dd>
 </dl>
@@ -124,12 +125,12 @@
 <code class="sig-name descname">compute_cost</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.compute_cost" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>AL: probability vector corresponding to your label predictions, shape (1, number of examples)</p></li>
-<li><p>Y: true “label” vector (for example: containing 0 if non-cat, 1 if cat), shape (1, number of examples)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AL</span></code>: probability vector corresponding to your label predictions, shape (1, number of examples)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code>: true “label” vector (for example: containing 0 if non-cat, 1 if cat), shape (1, number of examples)</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>cost: cross-entropy cost</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cost</span></code>: cross-entropy cost</p></li>
 </ul>
 </dd>
 </dl>
@@ -141,15 +142,15 @@
 <dd><dl class="simple">
 <dt>Back propagation unit</dt><dd><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>dA: post-activation gradient for current layer l</p></li>
-<li><p>cache: tuple of values (linear_cache, activation_cache) we store for computing backward propagation efficiently</p></li>
-<li><p>activation: the activation to be used in this layer, stored as a text string: “sigmoid” or “relu”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dA</span></code>: post-activation gradient for current layer l</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cache</span></code>: tuple of values (linear_cache, activation_cache) we store for computing backward propagation efficiently</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">activation</span></code>: the activation to be used in this layer, stored as a text string: “sigmoid” or “relu”</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>dA_prev: Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev</p></li>
-<li><p>dW: Gradient of the cost with respect to W (current layer l), same shape as W</p></li>
-<li><p>db: Gradient of the cost with respect to b (current layer l), same shape as b</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dA_prev</span></code>: Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dW</span></code>: Gradient of the cost with respect to W (current layer l), same shape as <code class="docutils literal notranslate"><span class="pre">W</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">db</span></code>: Gradient of the cost with respect to b (current layer l), same shape as <code class="docutils literal notranslate"><span class="pre">b</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -162,15 +163,15 @@
 <code class="sig-name descname">linear_activation_forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A_prev</span></em>, <em class="sig-param"><span class="n">W</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">activation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.linear_activation_forward" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>A_prev: activations from previous layer (or input data): (size of previous layer, number of examples)</p></li>
-<li><p>W: weights matrix: numpy array of shape (size of current layer, size of previous layer)</p></li>
-<li><p>b: bias vector, numpy array of shape (size of the current layer, 1)</p></li>
-<li><p>activation: the activation to be used in this layer, stored as a text string: “sigmoid” or “relu”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">A_prev</span></code>: activations from previous layer (or input data): (size of previous layer, number of examples)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">W</span></code>: weights matrix: numpy array of shape (size of current layer, size of previous layer)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code>: bias vector, numpy array of shape (size of the current layer, 1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">activation</span></code>: the activation to be used in this layer, stored as a text string: “sigmoid” or “relu”</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>A: The output of the activation function, also called the post-activation value</p></li>
-<li><p>cache: a python tuple containing “linear_cache” and “activation_cache”; stored for computing the backward pass efficiently</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">A</span></code>: The output of the activation function, also called the post-activation value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cache</span></code>: a python tuple containing “linear_cache” and “activation_cache”; stored for computing the backward pass efficiently</p></li>
 </ul>
 </dd>
 </dl>
@@ -181,14 +182,14 @@
 <code class="sig-name descname">linear_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dZ</span></em>, <em class="sig-param"><span class="n">cache</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.linear_backward" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>dZ: Gradient of the cost with respect to the linear output (of current layer l)</p></li>
-<li><p>cache: tuple of values (A_prev, W, b) coming from the forward propagation in the current layer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dZ</span></code>: Gradient of the cost with respect to the linear output (of current layer l)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cache</span></code>: tuple of values (A_prev, W, b) coming from the forward propagation in the current layer</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>dA_prev: Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev</p></li>
-<li><p>dW: Gradient of the cost with respect to W (current layer l), same shape as W</p></li>
-<li><p>db: Gradient of the cost with respect to b (current layer l), same shape as b</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dA_prev</span></code>: Gradient of the cost with respect to the activation (of the previous layer l-1), same shape as A_prev</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dW</span></code>: Gradient of the cost with respect to W (current layer l), same shape as W</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">db</span></code>: Gradient of the cost with respect to b (current layer l), same shape as b</p></li>
 </ul>
 </dd>
 </dl>
@@ -200,13 +201,13 @@
 <dd><dl class="simple">
 <dt>Implements a linear forward step</dt><dd><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>A: activations from previous layer (or input data): (size of previous layer, number of examples)</p></li>
-<li><p>W: weights matrix: numpy array of shape (size of current layer, size of previous layer)</p></li>
-<li><p>b: bias vector, numpy array of shape (size of the current layer, 1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">A</span></code>: activations from previous layer (or input data): (size of previous layer, number of examples)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">W</span></code>: weights matrix: numpy array of shape (size of current layer, size of previous layer)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code>: bias vector, numpy array of shape (size of the current layer, 1)</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>Z: the input of the activation function, also called pre-activation parameter cache: a python tuple containing “A”, “W” and “b” ; stored for computing the backward pass efficiently</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Z</span></code>: the input of the activation function, also called pre-activation parameter cache: a python tuple containing “A”, “W” and “b” ; stored for computing the backward pass efficiently</p></li>
 </ul>
 </dd>
 </dl>
@@ -221,12 +222,12 @@
 <blockquote>
 <div><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>X: data set of examples you would like to label</p></li>
-<li><p>parameters: parameters of the trained model</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code>: data set of examples you would like to label</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parameters</span></code>: parameters of the trained model</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>p: predictions for the given dataset X</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: predictions for the given dataset <code class="docutils literal notranslate"><span class="pre">X</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -240,12 +241,12 @@
 <blockquote>
 <div><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>dA: post-activation gradient, of any shape</p></li>
-<li><p>cache: ‘Z’ where we store for computing backward propagation efficiently</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dA</span></code>: post-activation gradient, of any shape</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cache</span></code>: <code class="docutils literal notranslate"><span class="pre">'Z'</span></code> where we store for computing backward propagation efficiently</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>dZ: Gradient of the cost with respect to Z</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dZ</span></code>: Gradient of the cost with respect to <code class="docutils literal notranslate"><span class="pre">Z</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -259,12 +260,12 @@
 <blockquote>
 <div><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>dA: post-activation gradient, of any shape</p></li>
-<li><p>cache: ‘Z’ where we store for computing backward propagation efficiently</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dA</span></code>: post-activation gradient, of any shape</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cache</span></code>: <code class="docutils literal notranslate"><span class="pre">'Z'</span></code> where we store for computing backward propagation efficiently</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>dZ: Gradient of the cost with respect to Z</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dZ</span></code>: Gradient of the cost with respect to <code class="docutils literal notranslate"><span class="pre">Z</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -276,15 +277,15 @@
 <code class="sig-name descname">update_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">grads</span></em>, <em class="sig-param"><span class="n">learning_rate</span></em><span class="sig-paren">)</span><a class="headerlink" href="#network_utils.NeuralNetwork.update_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>parameters: python dictionary containing your parameters</p></li>
-<li><p>grads: python dictionary containing your gradients, output of L_model_backward</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parameters</span></code>: python dictionary containing your parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grads</span></code>: python dictionary containing your gradients, output of L_model_backward</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
 <li><dl class="simple">
-<dt>parameters: python dictionary containing your updated parameters</dt><dd><ul>
-<li><p><cite>parameters[“W” + str(l)] = …</cite></p></li>
-<li><p><cite>parameters[“b” + str(l)] = …</cite></p></li>
+<dt><code class="docutils literal notranslate"><span class="pre">parameters</span></code>: python dictionary containing your updated parameters</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">parameters[&quot;W&quot;</span> <span class="pre">+</span> <span class="pre">str(l)]</span> <span class="pre">=</span> <span class="pre">...</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parameters[&quot;b&quot;</span> <span class="pre">+</span> <span class="pre">str(l)]</span> <span class="pre">=</span> <span class="pre">...</span></code></p></li>
 </ul>
 </dd>
 </dl>

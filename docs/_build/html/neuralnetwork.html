@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main File and example implementation &#8212; Deep neural networks with numpy 1.0.1 documentation</title>
+    <title>An Example implementation &#8212; Deep neural networks with numpy 1.0.1 documentation</title>
     <link rel="stylesheet" href="_static/flasky.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -13,6 +13,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Network’s Design and architecture" href="network_utils.html" />
@@ -38,7 +39,7 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Deep neural networks with numpy 1.0.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">Deep Neural Network with numpy</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Main File and example implementation</a></li> 
+        <li class="nav-item nav-item-this"><a href="">An Example implementation</a></li> 
       </ul>
     </div>  
 
@@ -48,7 +49,55 @@
           <div class="body" role="main">
             
   <div class="section" id="module-neuralnetwork">
-<span id="main-file-and-example-implementation"></span><h1>Main File and example implementation<a class="headerlink" href="#module-neuralnetwork" title="Permalink to this headline">¶</a></h1>
+<span id="an-example-implementation"></span><h1>An Example implementation<a class="headerlink" href="#module-neuralnetwork" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">h5py</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">network_utils</span> <span class="kn">import</span> <span class="n">NeuralNetwork</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="c1"># Data</span>
+    <span class="k">def</span> <span class="nf">load_data</span><span class="p">():</span>
+        <span class="n">train_dataset</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;../Datasets/train_catvnoncat.h5&#39;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+        <span class="n">train_set_x_orig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">[</span><span class="s2">&quot;train_set_x&quot;</span><span class="p">][:])</span> <span class="c1"># your train set features</span>
+        <span class="n">train_set_y_orig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">[</span><span class="s2">&quot;train_set_y&quot;</span><span class="p">][:])</span> <span class="c1"># your train set labels</span>
+
+        <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;../Datasets/test_catvnoncat.h5&#39;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+        <span class="n">test_set_x_orig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">[</span><span class="s2">&quot;test_set_x&quot;</span><span class="p">][:])</span> <span class="c1"># your test set features</span>
+        <span class="n">test_set_y_orig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">[</span><span class="s2">&quot;test_set_y&quot;</span><span class="p">][:])</span> <span class="c1"># your test set labels</span>
+
+        <span class="n">classes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">[</span><span class="s2">&quot;list_classes&quot;</span><span class="p">][:])</span> <span class="c1"># the list of classes</span>
+
+        <span class="n">train_set_y_orig</span> <span class="o">=</span> <span class="n">train_set_y_orig</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">train_set_y_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">test_set_y_orig</span> <span class="o">=</span> <span class="n">test_set_y_orig</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">test_set_y_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+        <span class="k">return</span> <span class="n">train_set_x_orig</span><span class="p">,</span> <span class="n">train_set_y_orig</span><span class="p">,</span> <span class="n">test_set_x_orig</span><span class="p">,</span> <span class="n">test_set_y_orig</span><span class="p">,</span> <span class="n">classes</span>
+
+    <span class="n">train_x_orig</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_x_orig</span><span class="p">,</span> <span class="n">test_y</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">()</span>
+
+    <span class="c1"># Flatten the training and test examples</span>
+    <span class="n">train_x_flatten</span> <span class="o">=</span> <span class="n">train_x_orig</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">train_x_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>   <span class="c1"># The &quot;-1&quot; makes reshape flatten the remaining dimensions</span>
+    <span class="n">test_x_flatten</span> <span class="o">=</span> <span class="n">test_x_orig</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">test_x_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+    <span class="c1"># Standardize data to have feature values between 0 and 1.</span>
+    <span class="n">train_x</span> <span class="o">=</span> <span class="n">train_x_flatten</span><span class="o">/</span><span class="mf">255.</span>
+    <span class="n">test_x</span> <span class="o">=</span> <span class="n">test_x_flatten</span><span class="o">/</span><span class="mf">255.</span>
+
+    <span class="c1"># Make the neural neural network</span>
+    <span class="n">neural_network</span> <span class="o">=</span> <span class="n">NeuralNetwork</span><span class="p">()</span>
+    <span class="n">layers_dims</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12288</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">iterations</span> <span class="o">=</span> <span class="mi">100</span>
+
+    <span class="n">params</span> <span class="o">=</span> <span class="n">neural_network</span><span class="o">.</span><span class="n">L_layer_model</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">layers_dims</span><span class="p">,</span> <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.0075</span><span class="p">,</span> <span class="n">num_iterations</span> <span class="o">=</span> <span class="n">iterations</span><span class="p">,</span> <span class="n">print_cost</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">train_acc</span> <span class="o">=</span> <span class="n">neural_network</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+    <span class="n">test_acc</span> <span class="o">=</span> <span class="n">neural_network</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Training accuracy: after </span><span class="si">{iterations}</span><span class="s1"> is </span><span class="si">{train_acc}</span><span class="s1"> and testing accuracy is </span><span class="si">{test_acc}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 
 

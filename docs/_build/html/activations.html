@@ -13,6 +13,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Parameters initialization module" href="initializeparameters.html" />
@@ -56,20 +57,22 @@
 <dl class="py function">
 <dt id="activations.relu">
 <code class="sig-prename descclassname">activations.</code><code class="sig-name descname">relu</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Z</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.relu" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implement the RELU function.</p>
+<dd><p>Implement the <code class="docutils literal notranslate"><span class="pre">RELU</span></code> function.</p>
 <blockquote>
 <div><dl class="simple">
 <dt>Arguments:</dt><dd><ul class="simple">
-<li><p>Z – Output of the linear layer, of any shape</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Z</span></code> – Output of the linear layer, of any shape</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>A – Post-activation parameter, of the same shape as Z</p></li>
-<li><p>cache – a python dictionary containing “A” ; stored for computing the backward pass efficiently</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">A</span></code> – Post-activation parameter, of the same shape as Z</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cache</span></code> – a python dictionary containing “A” ; stored for computing the backward pass efficiently</p></li>
 </ul>
 </dd>
 </dl>
 </div></blockquote>
+<div class="math notranslate nohighlight">
+\[ReLU(Z) = max(0, Z)\]</div>
 </dd></dl>
 
 <dl class="py function">
@@ -79,12 +82,12 @@
 <blockquote>
 <div><dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>Z – numpy array of any shape</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Z</span></code> – numpy array of any shape</p></li>
 </ul>
 </dd>
 <dt>Returns:</dt><dd><ul class="simple">
-<li><p>A – output of <cite>sigmoid(z)</cite>, same shape as Z</p></li>
-<li><p>cache – returns Z as well, useful during backpropagation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">A</span></code> – output of <code class="docutils literal notranslate"><span class="pre">sigmoid(z)</span></code>, same shape as <code class="docutils literal notranslate"><span class="pre">Z</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cache</span></code> – returns <code class="docutils literal notranslate"><span class="pre">Z</span></code> as well, useful during backpropagation</p></li>
 </ul>
 </dd>
 </dl>
